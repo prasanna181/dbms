@@ -55,8 +55,14 @@ def Faculty():
 
 @app.route("/Visitors")
 def Visitors():
-    return render_template('visitors.html')              
-   
+    return render_template('visitors.html')   
+
+@app.route("/Studentrecord")
+def student():
+    if not Login.is_authenticated:
+        return render_template('login.html')
+    else:
+        return render_template('studentrecord.html',enroll=current_user.enroll)
 
 @app.route("/Login",methods=['POST','GET'])
 def login():
@@ -67,7 +73,7 @@ def login():
 
         if log and check_password_hash(log.password,password):
             login_user(log)
-            return redirect(url_for("Faculty"))
+            return redirect(url_for("student"))
         else:
             print("invalid credentials")
             return render_template('login.html')    
@@ -75,8 +81,10 @@ def login():
     return render_template('login.html')
 
 @app.route("/Logout")
+@login_required
 def logout():
-    return render_template('login.html')
+    logout_user()
+    return redirect(url_for('login'))
 
 
 @app.route("/SignUp",methods=['POST','GET'])
