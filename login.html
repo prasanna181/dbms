@@ -1,0 +1,55 @@
+
+
+{% extends 'base.html' %}
+
+{% block title %}
+Login
+{% endblock title %}
+
+
+{% block  body  %}
+
+
+
+
+<div class="container mt-3">
+    <div class="row">
+    
+    <div class="col-md-4"></div>
+    
+    <div class="col-md-4 jumbotron"
+    
+    <form>
+    
+    
+        <div class="form-group">
+            <label for="enrollmentnumber">Enrollment Number</label>
+            <input type="text" class="form-control" id="enrollmentnumber" name="enrollmentnumber" required >
+        
+          </div>
+        <br>
+         
+        
+        <br>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" name="password" required>
+          </div>
+          <br>
+          <button type="submit" class="btn btn-info btn-sm btn-block">Signup</button>
+      </form>
+    <br>
+    <br>
+    Not Registered ? <a href="/SignUp">SignUP</a>
+    </div>
+    <div class="col-md-3"></div>
+    
+    </div>
+    
+    
+    
+    </div>
+    
+
+
+{% endblock  body  %}
